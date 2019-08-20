@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UIView *blueView;
 
 @property (strong, nonatomic) IBOutlet UIView *garyView;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 
@@ -62,15 +63,16 @@
     // Do any additional setup after loading the view.
     NSLog(@"%s", __func__);
     
-    TF_View *tfView = [[TF_View alloc] initWithFrame:CGRectMake(100, 500, 128, 88)];
-    tfView.backgroundColor = [UIColor redColor];
-    tfView.tag = 1000;
-    [self.view addSubview:tfView];
+//    TF_View *tfView = [[TF_View alloc] initWithFrame:CGRectMake(100, 500, 128, 88)];
+//    tfView.backgroundColor = [UIColor redColor];
+//    tfView.tag = 1000;
+//    [self.view addSubview:tfView];
+//    
+//    self.blueView.userInteractionEnabled = YES;
+//
+//    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
+//    [self.blueView addGestureRecognizer:pan];
     
-    self.blueView.userInteractionEnabled = YES;
-
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
-    [self.blueView addGestureRecognizer:pan];
     
 }
 

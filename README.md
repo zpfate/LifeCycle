@@ -29,6 +29,13 @@ load方法加载顺序:
 initialize方法调用顺序:
 
     1. 父类的initialize方法会比子类的initialize方法先执行
-    2. 当子类未实现initialize方法时, 会调用父类initialize方法, 子类实现initialize方法时,会覆盖父类initialize方法.
-    3. 当有多个Category都实现了initialize方法,会覆盖类中的方法,只执行一个(会执行Compile Sources 列表中最后一个Category 的initialize方法)
+    2. 当子类未实现initialize方法时, 会调用父类initialize方法. 子类实现initialize方法时, 会覆盖父类initialize方法.
+    3. 当有多个Category都实现了initialize方法, 会覆盖类中的方法, 只执行一个(会执行Compile Sources列表中最后一个Category的initialize方法)
+
+## main函数
+    main函数是iOS程序的入口, 返回值为int, 但是实际上并不会返回(runloop), 会一直保存在内存中, 知道程序终止.
+    
+![iOS main函数](https://user-gold-cdn.xitu.io/2019/8/20/16cadc1381735123?w=790&h=130&f=png&s=21512 "main函数" )
+
+
 
