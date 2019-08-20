@@ -23,7 +23,7 @@ int main(int argc, char * argv[]) {
          @param argv 参数
          @param principalClassName 根据该参数初始化一个UIApplication或其子类的对象并开始接收事件(传入nil, 意味使用默认的UIApplication)
          @param delegateClassName 该参数指定AppDelegate类作为委托, delegate对象主要用于监听, 类似于生命周期的回调函数
-         @return 返回值为int, 并不会返回r, 应该是runloop原理,会一直在内存中, 直到程序被终止
+         @return 返回值为int, 但是并不会返回, 会一直在内存中 直到程序终止
          */
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }

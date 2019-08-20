@@ -7,25 +7,25 @@
 //
 
 #import "AppDelegate.h"
-
-@interface AppDelegate ()
+#import <UserNotifications/UserNotifications.h>
+@interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end
 
 @implementation AppDelegate
 
-// app启动完成, 由类似通知打开app, launchOptions字典会有对应的key值
+// app启动完成就会调用  如果由通知打开,launchOptions对应的key有值, iOS10之后UNUserNotificationCenterDelegate中的didReceiveNotificationResponse方法也能响应
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
     NSLog(@"%s", __func__);
+    
 
     return YES;
 }
 
-
-
-// 进入前台
+// 程序由后台转入前台
+// 本地通知key: UIApplicationWillEnterForegroundNotification
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     
@@ -34,7 +34,8 @@
 }
 
 
-// 激活
+// 程序进入活跃状态
+// 本地通知key: UIApplicationDidBecomeActiveNotification
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
@@ -42,7 +43,9 @@
     
 }
 
-// 挂起
+// 程序进入非活跃状态
+// 比如有电话进来或者锁屏等情况, 此时应用会先进入非活跃状态, 也有可能是程序即将进入后台(进入后台前会先调用)
+// 本地通知key: UIApplicationWillResignActiveNotification
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -51,6 +54,7 @@
 }
 
 // 进入后台
+// 本地通知key: UIApplicationDidEnterBackgroundNotification
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
@@ -59,7 +63,8 @@
 
 }
 
-// 程序即将终止, 需要注意的是双击home退出并不会调用这个方法
+// 程序即将退出
+// UIApplicationWillTerminateNotification
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     
