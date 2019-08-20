@@ -17,10 +17,7 @@
 // app启动完成就会调用  如果由通知打开,launchOptions对应的key有值, iOS10之后UNUserNotificationCenterDelegate中的didReceiveNotificationResponse方法也能响应
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
     NSLog(@"%s", __func__);
-    
-
     return YES;
 }
 
@@ -28,9 +25,7 @@
 // 本地通知key: UIApplicationWillEnterForegroundNotification
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    
     NSLog(@"%s", __func__);
-    
 }
 
 
@@ -58,16 +53,13 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    
     NSLog(@"%s", __func__);
-
 }
 
 // 程序即将退出
 // UIApplicationWillTerminateNotification
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    
     NSLog(@"%s", __func__);
 }
 
